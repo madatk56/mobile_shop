@@ -13,7 +13,10 @@ module.exports = () => {
                     message: 'Connect DataBase Error'
                 }
             } else {
-                return data;
+                return{
+                    code:'200',
+                    data: data
+                }
             }
             conn.connection.close();
         });
