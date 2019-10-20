@@ -1,22 +1,30 @@
 const conn = require('../../controller/connection');
 
 module.exports = (id) => {
-    const getProduct = 'SELECT * FROM dbo.product WHERE productCode=\'' + id + '\';'
-    conn.connection.connect(err => {
-        if (err) {
-            return Error 'error connect to server';
-        }
-        conn.request.query(getProduct, (err, data) => {
+    const getProduct = 'SELECT * FROM dbo.product WHERE productCode=\'' + id + '\';';
+    return new Promise((resolve, reject) => {
+        conn.connection.connect(err => {
             if (err) {
-                return {
-                    code: '401',
-                    message: 'connecting to database is error'
+                return reject(Error 'error connect to server')
+            }
+            conn.request.query(getProduct, (err, data) => {
+                if (err) {
+                    return reject(Error 'can not get data in database')
+                } else {
+                    if (data) {
+                        return resolve({
+                            code: '200',
+                            message: 'OK',
+                            data: data
+                        })
+                    } else {
+                        return resolve({
+                            code: '420',
+                            message: 'database is empty'
+                        })
+                    }
                 }
-            }
-            else {
-                return data;
-            }
-            conn.connection.close();
+            })
         })
     })
 }
