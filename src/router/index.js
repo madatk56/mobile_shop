@@ -1,4 +1,6 @@
-const user = require('./users/index')
-module.exports(app){
-    app.use('/user',user)
+const products = require('./products/index');
+const directory = require('../config/api');
+
+module.exports=(app)=>{
+    app.use(directory.ROOT_API.PRODUCTS,products)
 }

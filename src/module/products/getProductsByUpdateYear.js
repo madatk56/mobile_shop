@@ -8,11 +8,11 @@ module.exports = (date)=>{
     return new Promise((resolve, reject) => {
         conn.connection.connect(err=>{
             if(err){
-                return reject(Error 'error connect to server')
+                return reject(new Error('error connect to server'))
             }
             conn.request.query(dateQueryString,(err,data)=>{
                 if(err){
-                    return reject(Error 'can not get data in database')
+                    return reject(new Error('can not get data in database'))
                 }else{
                     if (data) {
                         return resolve({
@@ -26,7 +26,8 @@ module.exports = (date)=>{
                             message: 'database is empty'
                         })
                     }
-                }   
+                }
+                conn.connection.close();   
             })
         })
     })
