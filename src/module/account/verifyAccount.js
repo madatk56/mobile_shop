@@ -1,6 +1,6 @@
 const getAccount = require('./getAccount');
 const jwt = require('jsonwebtoken');
-const secretKey = require('../../config/constants').secretKey;
+const secretKey = process.env.secretKey;
 module.exports = (user) => {
     return new Promise((resolve, reject) => {
         getAccount(user).then(result => {

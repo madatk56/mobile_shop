@@ -11,6 +11,7 @@ module.exports={
         getProductByUpdateMonth: "/:date"
     },
     LOGIN:{
-        signIn:"/sign-in"
+        signIn:"/sign-in",
+        createAccount:"/create-account"
     }
 }

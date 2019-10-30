@@ -1,6 +1,8 @@
-const login = require('./login');
 const router = require('express').Router();
 const directory = require('../../config/api');
-router.post(directory.LOGIN.signIn,login);
 
+const login = require('./login');
+const createAccount = require('./createAccount');
+router.post(directory.LOGIN.signIn,login);
+router.put(directory.LOGIN.createAccount,createAccount);
 module.exports = router;
