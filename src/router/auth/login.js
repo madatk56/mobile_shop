@@ -8,4 +8,7 @@ module.exports=(req,res)=>{
    verifyAccount(user).then(result=>{
        res.json(result);
    })
+                      .catch(err=>{
+        console.log('dang bi loi'+ err);                
+    })  
 }

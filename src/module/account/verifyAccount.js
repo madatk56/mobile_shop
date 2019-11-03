@@ -4,7 +4,6 @@ const secretKey = process.env.secretKey;
 module.exports = (user) => {
     return new Promise((resolve, reject) => {
         getAccount(user).then(result => {
-
             if (result.code == '200') {
                 jwt.sign(user, secretKey, (err, token) => {
                     if (err) {
