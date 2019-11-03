@@ -13,5 +13,8 @@ module.exports={
     LOGIN:{
         signIn:"/sign-in",
         createAccount:"/create-account"
+    },
+    Mail:{
+        sendMail:"/mail"
     }
 }
