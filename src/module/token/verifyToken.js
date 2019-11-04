@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const secretKey = process.env.secretKey;
+const secretKey = process.env.secretKey|| 'thesecret';
 module.exports= (token)=>{
     return new Promise((resolve,reject)=>{
         jwt.verify(token,secretKey,(err,decode)=>{
