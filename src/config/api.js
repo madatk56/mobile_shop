@@ -2,7 +2,7 @@ module.exports={
     ROOT_API : {
        HOMEPAGE: "/", 
        PRODUCTS: "/products",
-       LOGIN:"/login"
+       ROOT_ORDER:"/order"
     },
     PRODUCT: {
         getAllProducts: "/all",
@@ -16,5 +16,8 @@ module.exports={
     },
     Mail:{
         sendMail:"/mail"
+    },
+    ORDER:{
+        insertOrder:"/insert"
     }
 }

@@ -2,11 +2,10 @@ const conn = require('../../controller/connection');
 const getAccountByUserName = require('./getAccountByUserName');
 module.exports = (user) => {
     return new Promise((resolve, reject) => {
-        const id = '3';
-        const queryString = 'INSERT INTO dbo.account (id,userName,password)'
-            + 'VALUES(\'' + id + '\',\'' + user.userName + '\',\'' + user.password + '\');'
-            + 'INSERT INTO dbo.customer(IDCustomer,fullName)'
-            + 'VALUES(\'' + id + '\',\'' + user.fullName + '\');';
+        const queryString = 'INSERT INTO dbo.account (userName,password)'
+            + 'VALUES(\''+ user.userName + '\',\'' + user.password + '\');'
+            + 'INSERT INTO dbo.customer(userName,fullName)'
+            + 'VALUES(\'' + user.userName + '\',\'' + user.fullName + '\');';
         getAccountByUserName(user).then(result => {
             if (result.code == '200') {
                 return (resolve({
