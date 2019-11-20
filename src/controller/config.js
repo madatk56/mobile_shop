@@ -1,6 +1,6 @@
 module.exports = {
     server: "localhost",
-    database: "mobi_shop",
+    database: "mobi",
     driver: "msnodesqlv8",
     options: {
         trustedConnection: true
