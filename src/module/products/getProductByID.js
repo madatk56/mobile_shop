@@ -12,7 +12,7 @@ module.exports = (id) => {
                 if (err) {
                     return reject(new Error('can not get data in database'))
                 } else {
-                    if (data) {
+                    if (data.recordset.length>0) {
                         return resolve({
                             code: '200',
                             message: 'OK',

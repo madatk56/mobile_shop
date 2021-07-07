@@ -1,10 +1,13 @@
 const jwt = require('jsonwebtoken');
-const secretKey = process.env.secretKey;
+const secretKey = process.env.secretKey|| 'thesecret';
 module.exports= (token)=>{
     return new Promise((resolve,reject)=>{
         jwt.verify(token,secretKey,(err,decode)=>{
             if(err){
-                return(reject(new Error('err decode token')));
+                return(resolve({
+                    code:'420',
+                    message:'err decode token'
+                }));
             }else{
                 //console.log(decode);
                 return(resolve(decode));
